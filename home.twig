@@ -3,66 +3,65 @@
 {% block content %}
 
 <a name="top"></a>
+
 <header>
     <div class="wrapper clearfix">
-        <div class="responsivecolumns columns-two-50-50">
+        <div class="responsivecolumns columns-two-75-25">
             <div class="column columns-two-left">
-                {{widget('companyname', 'companyname', {"business": "Grill House"})|raw}}
+                {{widget('logo', 'grillhouse-logo', {"defaultlogo": asset('images/grillhouse-logo.png')})|raw}}
+
+                {{widget('companyname', 'companyname', {"business": "GRILLHOUSE"})|raw}}
             </div>
                 <!--end columns-two-left-->
             <div class="column columns-two-right">
+                {{widget('clicktocall', 'telephone-us', {phoneText: '212 6574 6736'})|raw}}
             </div>
                 <!--end columns-two-right-->            
-            </div>
-            <!--end columns-->
         </div>
         <!--end responsive-columns-->
- 
     </div>
     <!--end wrapper -->
 
-    <div class="wrapper">
-        <div class="desktop-nav">
-            <div class="navigation">
-                <ul>
-                    <li><a href="/snacks"><span class=" menu-icon"></span><span class="text">Snacks</span></a></li>
-                    <li><a href="/burgers"><span class=" menu-icon"></span><span class="text">Breakfast</span></a></li>
-                    <li><a href="/sides"><span class=" menu-icon"></span><span class="text">Salads</span></a></li>
-                    <li><a href="/fries"><span class=" menu-icon"></span><span class="text">Pasta</span></a></li>
-                    <li><a href="/chefs"><span class=" menu-icon"></span><span class="text">Burgers</span></a></li>
-                    <li><a href="/salads"><span class=" menu-icon"></span><span class="text">Paninies</span></a></li>
-                    <li><a href="/icecream"><span class=" menu-icon"></span><span class="text">Desserts</span></a></li>
-                    <li><a href="/hot-drinks"><span class=" menu-icon"></span><span class="text">Hot Drinks</span></a></li>
-                    <li><a href="/cold-drinks"><span class=" menu-icon"></span><span class="text">Cold Drinks</span></a></li>
-                </ul>
-                <a href="#" class="pull"></a>
-            </div>
-            <!--end navigation-->
-        </div>
-        <!--end desktop-nav-->
+    {{widget('menusections', 'menusections1', {})|raw}}
 
-    </div>
-    <!--end wrapper clearfix-->
 </header>
 
-<div class="top-nav">  
-    {{widget('extendednavigation', 'topnavigation', {})|raw}}
-</div>
+<div class="main wrapper">
 
     {{widget('menu', 'menu1', {})|raw}}
 
+    <div class="wrapper">
+        <div class="responsivecolumns columns-three-33-34-33 offers">
+            <div class="column columns-three-left">
+                {{widget('image', 'offers', { 'src': asset('images/takeaway-img.jpg'), 'alt': 'my image', 'fileName': 'my-image.jpg', 'imageWidth': '100%'})|raw}}
+                <h3>{{widget('content', 'takeawayheading', {content: 'TAKEAWAY', lines: 'all'})|raw}}</h3>
+                <p>{{widget('content', 'takeawaycontent', {content: 'This is a content widget.', lines: 'all'})|raw}}</p>
+            </div> 
+            <div class="column columns-three-middle">
+                {{widget('image', 'offers', { 'src': asset('images/beer-special-img.jpg'), 'alt': 'my image', 'fileName': 'my-image.jpg', 'imageWidth': '97%'})|raw}}
+                <h3>{{widget('content', 'specialsheading', {content: 'BEER &amp; BURGER SPECIAL', lines: 'all'})|raw}}</h3>
+                <p>{{widget('content', 'specialscontent', {content: 'This is a content widget.', lines: 'all'})|raw}}</p>
+            </div>
+            <div class="column columns-three-right">
+                {{widget('image', 'offers', { 'src': asset('images/opening-img.jpg'), 'alt': 'my image', 'fileName': 'my-image.jpg', 'imageWidth': '100%'})|raw}}
+                <h3>{{widget('content', 'openingheading', {content: 'OPENING HOURS', lines: 'all'})|raw}}</h3>
+                <p>{{widget('content', 'openingcontent', {content: 'This is a content widget.', lines: 'all'})|raw}}</p>
+            </div> 
+        </div>
+    </div>
 
-
+</div>
 
 <footer>
     <div class="wrapper clearfix">
-
-         {{widget('content', 'footercolumn1content', {"content":"<p>Lorem Ipsum Dolor</p>"})|raw}}
-       
+        <div class="responsivecolumns columns-two-50-50">
+            <div class="column columns-two-left">
+            {{widget('map', 'addressmap', {'height': '250', 'zoom': '15', 'address': 'profile'})|raw}}
+            </div> 
+            <div class="column columns-two-right">
+            {{widget('content', 'footercontent', {content: 'This is a content widget.', lines: 'all'})|raw}}
+        </div>
     </div>
-
-<div class="back-to-top"><a href="#top">Back to top^</a></div>
-    
 </footer>
 
 {% endblock %}
