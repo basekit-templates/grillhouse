@@ -2,31 +2,44 @@
 
 {% block content %}
 
- <header>
+<a name="top"></a>
+
+<header class="bk-header">
     <div class="wrapper clearfix">
-       {{widget('companyheader', 'companyheader', {"defaultlogo": asset('images/logo.png')})|raw}}
-       {{widget('extendednavigation', 'navigationheader', {})|raw}}
+        <div class="responsivecolumns columns-two-75-25">
+            <div class="column columns-two-left">
+                {{widget('logo', 'grillhouse-logo', {"defaultlogo": asset('images/grillhouse-logo.png')})|raw}}
+                {{widget('companyname', 'companyname', {"business": "GRILLHOUSE"})|raw}}
+            </div>
+                <!--end columns-two-left-->
+            <div class="column columns-two-right">
+                {{widget('clicktocall', 'telephone-us', {phoneText: '212 6574 6736'})|raw}}
+            </div>
+                <!--end columns-two-right-->            
+        </div>
+        <!--end responsive-columns-->
     </div>
+    <!--end wrapper -->
+    <nav class="clearfix">
+        {% if pages|length > 1 %}
+            {{widget('extendednavigation', 'navigationheader', {})|raw}}
+        {% endif %}
+    </nav>
 </header>
 
-<div class="main wrapper clearfix">
-    <div id="featuregallery">
-        {{widget('gallery', 'featuregallery', {})|raw}}
-    </div>
+<div class="main wrapper">
+    {{widget('gallery', 'featuregallery', {})|raw}}
     {{zone('main')|raw}}
 </div>
 
-<footer>
+<footer class="bk-footer">
     <div class="wrapper clearfix">
         <div class="responsivecolumns columns-two-50-50">
             <div class="column columns-two-left">
-                {{widget('content', 'footercolumn1', {"content":"<h2>Lorem Ip Soda</h2><p>Integer a Tortor Dui. Nullam nec ante mi. Morbi sodales urna sit amet mauris elementum quis rutrum lacus gravida. Proin feugia libero quis.</p>"})|raw}}
-            </div>
+            {{widget('map', 'addressmap', {'height': '250', 'zoom': '15', 'address': 'profile'})|raw}}
+            </div> 
             <div class="column columns-two-right">
-                {{widget('content', 'footercolumn2', {"content":"<h2>Aliquam Sodales</h2><p>Copyright © 2013. All Rights Reserved.</p>"})|raw}}
-
-                {{widget('socialicons', 'socialicons', {'googleplus': 'https://plus.google.com/101946323226233111530', 'linkedin':'http://www.linkedin.com/company/basekit', 'facebook': 'https://www.facebook.com/TeamBaseKit', 'twitter': 'https://twitter.com/basekit', 'youtube': 'https://www.youtube.com/user/TeamBaseKit', 'rss': 'http://blogdiseno.basekit.es/feed/'})|raw}}
-            </div>
+            {{widget('content', 'footercontent', {content: 'This is a content widget.', lines: 'all'})|raw}}
         </div>
     </div>
 </footer>

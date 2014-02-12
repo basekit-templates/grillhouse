@@ -21,7 +21,9 @@
     </div>
     <!--end wrapper -->
     <nav class="clearfix">
-        {{widget('extendednavigation', 'navigationheader', {})|raw}}
+        {% if pages|length > 1 %}
+            {{widget('extendednavigation', 'navigationheader', {})|raw}}
+        {% endif %}
     </nav>
 </header>
 

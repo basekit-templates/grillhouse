@@ -85,7 +85,7 @@ body {
    HEADER
    =============================== */
 
-.wrapper {
+.wrapper, nav {
     margin: 0 auto;
     max-width: 1140px;
     width: 90%;
@@ -170,64 +170,208 @@ header {
 
 }   /* end header */
 
+/* ===============================
+   EXTENDED NAVIGATION
+   =============================== */
+
 nav {
-    margin: 0 auto;
-    max-width: 960px;
-    .widget.extendednavigation {
-        margin-left: 3%;
-        margin-right: 3%;
+    @media @tablet {
+        width: 100%;
+    }   
+}
+
+.widget {
+    .extendednavigation {
+        float: none;
+        position: relative;
+        max-width: 100%;
+        min-height: 50px;
+        background-color: none;
         @media @tablet {
-            width: 100%;
-            height: 50px;
-            background: @color-swatch1;
-            margin: 0;
+            background-color: @color-swatch1;
+        }
+        li {
+            ul {
+                display: none !important;
+            }
         }
         ul {
-            padding: 1em 0 2em;
+            display: table;
+            float: none;
+            text-align: left;
+            padding: 0;
             @media @tablet {
-                background: @color-swatch1;
-                padding-left: 1em;
-                padding-right: 1em;
+                /* Hidden until nav icon is clicked */
+                display: none;
+                /* Then these styles are applied */
+                width: 100%;
+                border-top: 1px solid darken(@color-swatch1, 10%);
+                margin: 0;
+                padding: 50px 0 0;
             }
-            @media @tablet {
-                li {
-                    border-bottom: 1px solid fade(@color-swatch5, 25%);
+            li {
+                float: left;
+                display: block;
+                padding: 5px 0;
+                @media @tablet {
+                    width: 100%;
+                    padding: 1em 0;
+                    border-bottom: 1px dotted @color-swatch2;
                 }
-            }
-            li a {
-                padding: 0 2.5em;
-                &:first-child {
+                &:first-child a {
                     padding-left: 0;
                 }
-            }
-            li.folder {
-                &:after {
-                    right: 15px;
-                }
-                span.text {
-                    padding: 0 2.5em 0 0;
-                }
-                ul {
-                    background-color: fade(@color-swatch1, 85%);
-                }
-                ul li {
-                    span.text {
-                        padding: 8px 15px;
+                &:last-child {
+                    @media @tablet {
+                        border-bottom: 1px solid @color-swatch2;
                     }
                 }
-            }
-        }
-        a.pull {
-            &:after {
-                color: @color-swatch5;
-                font-size: 28px;
-                @media @tablet {
-                    right: 20px;
-                    top: 10px;
+
+                &:hover {
+                    ul {
+                        display: block !important;
+                        position: absolute;
+                        background-color: darken(@color-swatch1, 5%);
+                        z-index: 500;
+                        padding: 0;
+                        margin: 7px 0 0 0;
+                        li {
+                            display: block;
+                            width: 100%;
+                                .box-sizing {
+                                    a {
+                                        display: block;
+                                        padding: 0;
+                                    }
+                                }
+                        }
+                    }
+                }
+
+                a {
+                    display: block;
+                    padding: 0 15px;
+                    font-family: @font-swatch6-font-family;
+                    font-size: @font-swatch6-font-size;
+                    font-weight: @font-swatch6-font-weight;
+                    color: @font-swatch6-color;
+                    line-height: @font-swatch6-line-height;
+                    letter-spacing: @font-swatch6-letter-spacing;
+                    &:hover {
+                        color: @font-swatch6-color-hover;
+                        text-decoration: underline;
+                    }
+                }
+
+                &.folder {
+                    /* Folder dropdown arrow BG style goes Here */  
+                    margin-right: 20px;            
+                    cursor: pointer;
+                    background-image: none;
+                    @media @tablet {
+                        background-repeat: repeat;
+                        background-position: center;
+                    }
+                    .text {
+                        display: block;
+                        padding: 0 15px;
+                        font-family: @font-swatch6-font-family;
+                        font-size: @font-swatch6-font-size;
+                        font-weight: @font-swatch6-font-weight;
+                        color: @font-swatch6-color !important;
+                        line-height: @font-swatch6-line-height;
+                        letter-spacing: @font-swatch6-letter-spacing;
+                        position: relative;
+                        &:after {
+                            content: "\25BC";
+                            font-size: 8px;
+                            position: absolute;
+                            top: 1px;
+                            display: block;
+                            z-index: 9999999;
+                            right: 0;
+                            color: @color-swatch6;
+                            @media @tablet {
+                                font-size: 10px;
+                                padding-right: 10px;
+                            }
+                        }
+                        @media @tablet {
+                                color: @color-swatch5;
+                            }
+                        &:hover {
+                            color: @font-swatch6-color-hover;
+                            text-decoration: none;
+                            @media @tablet {
+                                color: @color-swatch5;
+                            }
+                        }
+                    }
+                    ul {
+                        padding: 0;
+                        @media @tablet {
+                            margin-top: 14px;
+                        }
+                        li {
+                            &:first-child a {
+                                padding-left: 15px;
+                            }
+                            a {
+                                &:hover {
+                                    text-decoration: none;
+                                }
+                                .text {
+                                    padding: 0;
+                                    &:after {
+                                        content: "";
+                                    }
+                                    &:hover {
+                                        text-decoration: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                 }
             }
         }
+
+        a {
+           &.pull {
+               display: none;
+               @media @tablet {
+                   display: block;
+                   position: absolute;
+                   margin: 0 auto;
+                   width: 100%;
+                   top: 0;
+                   &:hover {
+                       cursor: pointer;
+                   }
+                   &:after {
+                        content:"MENU";
+                        color: @color-swatch6;
+                        text-align: center;
+                        top: 0;
+                        right: 0;
+                        left: 0;
+                        margin: 0 auto;
+                        display: inline-block;
+                        padding-top: 12px;
+                        position: absolute;
+                        border: none;
+                        height: 50px;
+                        width: 100%;
+                   }
+               }
+           }
+       }
     }
+}
+
+.widget .extendednavigation ul li.folder:after {
+    display: none;
 }
 
 /* ===============================
@@ -407,9 +551,9 @@ nav {
                 -o-column-break-inside: avoid;
             }
             &.odd {
-                -webkit-column-count: 3;
-                -moz-column-count: 3;
-                column-count: 3;
+                -webkit-column-count: 2;
+                -moz-column-count: 2;
+                column-count: 2;
                  &.1-columns {
                     -webkit-column-count: 1;
                     -moz-column-count: 1;
@@ -444,7 +588,7 @@ nav {
                 &.menu-item-promoted {
                     display: inline-block;
                     padding: 1.5em;
-                    margin: 2em 0 1.5em;
+                    margin: 1em 0 1.5em;
                     border: 2px dotted @color-swatch7;
                     @media @mobile {
                         margin-top: 3.75em;
@@ -472,7 +616,7 @@ nav {
 
                     h3 {    /* menu-item-name and menu-section-item-name */  
                         padding: 0;
-                        margin: 1em 0 0.25em;
+                        margin: 0.25em 0;
                         font-family: @font-swatch3-font-family;
                         color: @font-swatch3-color;
                         text-align: left;
@@ -623,7 +767,6 @@ nav {
                 -webkit-column-rule: none;
                 li {
                     display: inline-block;
-                    border-bottom: none;
                 }
              }
         }
@@ -633,7 +776,7 @@ nav {
             float: left;
             text-align: center;
             margin: 2.5em 0;
-            border: 2px dotted @color-swatch1;
+            border: 2px dotted fade(@color-swatch6, 30%);
             padding: 30px;
             width: 100%;
 
