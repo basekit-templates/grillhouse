@@ -5,20 +5,21 @@ Table of Contents -
   1. Default
   2. Variable Media Queries
   3. Custom CSS
-  4. Header
+  4. Header & Nav
   5. Menu
-  6. Footer
-  7. Back to Top
-  8. Menu Navigation
-  9. Navigation Extended
-  10. Tablet Specific Styles
-  11. Mobile Specific Styles
+  6. Blog
+  7. Forms & Buttons
+  8. Slideshow
+  9. Footer
+  10. Back to Top
 
 */
 
 /* ===============================
-   Default
+   DEFAULT
    =============================== */
+
+@import "@{templateCommon}/basekit-bootstrap.less";
 
 body {
     background-color: @color-swatch1;
@@ -28,85 +29,8 @@ body {
     padding: 0;
 }
 
-.wrapper {
-    width: 90%;
-    margin: 0 5%;
-}
-
-a {
-    font-family:@font-swatch5-font-family;
-    font-size:@font-swatch5-font-size;
-    font-weight: @font-swatch5-font-weight;
-    line-height:@font-swatch5-line-height;
-    color:@color-swatch3;
-    letter-spacing: @font-swatch5-letter-spacing;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-h1, h2, h3, h4, h5, p {
-    margin: 0;
-    padding: 0 0 10px;
-}
-
 .bk-content-text p {
     color:@font-swatch5-color;            
-}
-
-h1 {
-    font-family:@font-swatch1-font-family;
-    font-weight: @font-swatch1-font-weight;
-    color:@font-swatch1-color;
-    line-height:@font-swatch1-line-height;
-    letter-spacing: @font-swatch1-letter-spacing;
-    font-size: @font-swatch1-font-size;
-}
-
-h2 {
-    font-family:@font-swatch2-font-family;
-    font-size: @font-swatch2-font-size;
-    font-weight: @font-swatch2-font-weight;
-    line-height:@font-swatch2-line-height;
-    color: @font-swatch2-color;
-    letter-spacing: @font-swatch2-letter-spacing;
-}
-
-h3 {
-    font-family:@font-swatch3-font-family;
-    font-size:@font-swatch3-font-size;
-    font-weight: @font-swatch3-font-weight;
-    color: @font-swatch3-color;
-    line-height:@font-swatch3-line-height;
-    letter-spacing: @font-swatch3-letter-spacing;
-}
-
-h4 {
-    font-family:@font-swatch4-font-family;
-    font-size:@font-swatch4-font-size;
-    font-weight:@font-swatch4-font-weight;
-    line-height:@font-swatch4-line-height;
-    color:@font-swatch4-color;
-    letter-spacing: @font-swatch4-letter-spacing;
-}
-
-p {
-    font-family:@font-swatch5-font-family;
-    font-size:@font-swatch5-font-size;
-    font-weight: @font-swatch5-font-weight;
-    line-height:@font-swatch5-line-height;
-    color:@font-swatch5-color;
-    letter-spacing: @font-swatch5-letter-spacing;
-}
-
-ol, li, ul {
-    font-family:@font-swatch5-font-family;
-    font-size:@font-swatch5-font-size;
-    font-weight:@font-swatch5-font-weight;
-    line-height:@font-swatch5-line-height;
-    color:@font-swatch5-color;
 }
 
 /* ===============================
@@ -114,7 +38,7 @@ ol, li, ul {
    =============================== */
 
 @tablet: ~"only screen and (max-width: 768px)";
-@mobile: ~"only screen and (max-width: 320px)";
+@mobile: ~"only screen and (max-width: 640px)";
 
 /* ===============================
    CUSTOM CSS
@@ -124,8 +48,8 @@ ol, li, ul {
     @media @tablet {
         width: 65%;
     }
-    @media only screen and (max-width: 600px) {
-        width: 100%;
+    @media @tablet {
+        width: 48%;
     }
     @media @mobile {
         width: 100%;
@@ -133,11 +57,12 @@ ol, li, ul {
 }
 
 .columns-two-75-25 .columns-two-right {
+    float: right;
     @media @tablet {
         width: 32%;
     }
-    @media only screen and (max-width: 600px) {
-        width: 100%;
+    @media @tablet {
+        width: 42%;
     }
     @media @mobile {
         width: 100%;
@@ -160,39 +85,51 @@ ol, li, ul {
    HEADER
    =============================== */
 
+.wrapper {
+    margin: 0 auto;
+    max-width: 1140px;
+    width: 90%;
+}
+
 header {
     background-color: @color-swatch1;
     background-image:image('/images/header-bg.jpg');
     background-repeat: repeat;
     padding-top: 65px;
 
-    @media @mobile {
+    @media @tablet {
         padding-top: 35px;
+        padding-bottom: 0;
     }
 
-        .companyname a {
-            display: block;
-            padding-bottom: 45px;
-            font-family: @font-swatch10-font-family;
-            font-weight: @font-swatch10-font-weight;
-            color: @font-swatch10-color;
-            line-height: @font-swatch10-line-height;
-            letter-spacing: @font-swatch10-letter-spacing;
-            font-size: @font-swatch10-font-size;
-                &:hover {
-                    text-decoration: none;
-                }
-                @media @mobile {
-                    font-size: 42px;
-                    padding-bottom: 20px;
-                }
-                @media only screen and (max-width: 600px) {
-                    font-size: 42px;
-                    padding-bottom: 20px;
-                }
-        } 
+    .widget {
+        &.companyname {
+            a {
+                display: block;
+                padding-bottom: 45px;
+                font-family: @font-swatch10-font-family;
+                font-weight: @font-swatch10-font-weight;
+                color: @font-swatch10-color;
+                line-height: @font-swatch10-line-height;
+                letter-spacing: @font-swatch10-letter-spacing;
+                font-size: @font-swatch10-font-size;
+                    &:hover {
+                        text-decoration: none;
+                    }
+                    @media @tablet {
+                        font-size: 42px;
+                        padding-bottom: 20px;
+                        position: relative;
+                        top: -5px;
+                    }
+                    @media only screen and (max-width: 600px) {
+                        font-size: 42px;
+                        padding-bottom: 20px;
+                    }
+                } 
+            }
 
-        .logo, .companyname {
+        &.logo, &.companyname {
             display: inline-block;
         }
             .logo {
@@ -200,12 +137,15 @@ header {
                 margin-right: 5px;
             }
 
-        .clicktocall {
+        &.clicktocall {
+            background: none;
             border: 2px dotted @color-swatch7;
             padding: 15px 20px;
             margin-bottom: 40px;
             text-align: center;
             a {
+                background: none;
+                padding: 10px;
                 font-family: @font-swatch5-font-family;
                 color: @font-swatch5-color;
                 &:before {
@@ -216,126 +156,156 @@ header {
                     width: 18px;
                     height: 26px;
                     vertical-align: middle;
-                    left: -10px;
+                    left: -15px;
                     position: relative;
                 }
                 &:hover {
+                    background: none;
                     color: @color-swatch3;
                     text-decoration: none;
                 }
             }
         }
+    }
 
 }   /* end header */
+
+nav {
+    margin: 0 auto;
+    max-width: 960px;
+    .widget.extendednavigation {
+        margin-left: 3%;
+        margin-right: 3%;
+        @media @tablet {
+            width: 100%;
+            height: 50px;
+            background: @color-swatch1;
+            margin: 0;
+        }
+        ul {
+            padding: 1em 0 2em;
+            @media @tablet {
+                background: @color-swatch1;
+                padding-left: 1em;
+                padding-right: 1em;
+            }
+            @media @tablet {
+                li {
+                    border-bottom: 1px solid fade(@color-swatch5, 25%);
+                }
+            }
+            li a {
+                padding: 0 2.5em;
+                &:first-child {
+                    padding-left: 0;
+                }
+            }
+            li.folder {
+                &:after {
+                    right: 15px;
+                }
+                span.text {
+                    padding: 0 2.5em 0 0;
+                }
+                ul {
+                    background-color: fade(@color-swatch1, 85%);
+                }
+                ul li {
+                    span.text {
+                        padding: 8px 15px;
+                    }
+                }
+            }
+        }
+        a.pull {
+            &:after {
+                color: @color-swatch5;
+                font-size: 28px;
+                @media @tablet {
+                    right: 20px;
+                    top: 10px;
+                }
+            }
+        }
+    }
+}
 
 /* ===============================
    4. MENU SECTIONS NAVIGATION
    =============================== */
 
-.menusections {
-    text-align: center;
-    ul {
-        display: inline-block;
-        list-style: none;
-        margin-top: 10px;
-        margin-bottom: 20px;
-        padding-left: 0;
-        @media @tablet {
-            /* Hidden until nav icon is clicked */
-            display: none;
-            /* Then these styles are applied */
-            width: 100%;
-            margin: 30px 0 0;
-            background-color: @color-swatch1;
-        }
-
-        /* ALIGN CENTER */
-        &.align-center {
-            li {
-                text-align: center;
-                &:hover {
-                    li {
-                        text-align: center;
-                    }
-                }
-            }
-        }
-        /* ALIGN LEFT */
-        &.align-left {
-            li {
-                text-align: left;
-                &:hover {
-                    li {
-                        text-align: left;
-                    }
-                }
-            }
-        }
-        /* ALIGN RIGHT */
-        &.align-right {
-            li {
-                text-align: right;
-                &:hover {
-                    li {
-                        text-align: right;
-                    }
-                }
-            }
-        }
-        li {
-            padding: 0 15px;
-            float: left;
-            border-right: 2px solid @color-swatch6;
+.widget {
+    &.menusections {
+        text-align: center;
+        ul {
+            display: inline-block;
+            list-style: none;
+            margin-top: 20px;
+            padding-left: 0;
             @media @tablet {
-                    width: 100%;
-                    padding: 1em 0;
-                    border-bottom: 1px dotted @color-swatch6;
-            }
-            &:last-child {
-                border-right: none;
-            }
-
-            a {
-                display: block;
-                font-family:@font-swatch6-font-family;
-                font-size:@font-swatch6-font-size;
-                font-weight: @font-swatch6-font-weight;
-                color: @font-swatch6-color;
-                line-height:@font-swatch6-line-height;
-                letter-spacing: @font-swatch6-letter-spacing;
-                &:hover {
-                    color: @font-swatch6-color-hover;
-                    text-decoration: none;
-                }
-                &:after {
-                    color: @color-swatch6;
-                }
-            }
-            &:last-child a:after {
-                content: "";
-            }
-        }
-    }
-    a {
-        &.pull {
-            display: none;
-            @media @tablet {
-                display: block;
+                /* Hidden until nav icon is clicked */
+                display: none;
+                /* Then these styles are applied */
                 width: 100%;
-                height: 50px;
-                right: 0;
-                background-color: @color-swatch2;
-                &:after {
-                    content:"";
-                    background: image('/images/nav-icon.png') no-repeat;
-                    background-position: right;
+                margin: 30px 0 0;
+                background-color: @color-swatch1;
+            }
+            li {
+                padding: 0 25px;
+                margin: 0;
+                float: left;
+                border-right: 2px solid @color-swatch6;
+                @media @tablet {
+                        width: 100%;
+                        padding: 1em 0;
+                        border-right: none;
+                        border-bottom: 1px dotted fade(@color-swatch6, 50%);
+                }
+                &:last-child {
+                    border-right: none;
+                }
+
+                a {
+                    display: block;
+                    font-family:@font-swatch6-font-family;
+                    font-size:@font-swatch6-font-size;
+                    font-weight: @font-swatch6-font-weight;
+                    color: @font-swatch6-color;
+                    line-height:@font-swatch6-line-height;
+                    letter-spacing: @font-swatch6-letter-spacing;
+                    &:hover {
+                        color: @font-swatch6-color-hover;
+                        text-decoration: none;
+                    }
+                    &:after {
+                        color: @color-swatch6;
+                    }
+                }
+                &:last-child a:after {
+                    content: "";
+                }
+            }
+        }
+        a {
+            &.menu-pull {
+                display: none;
+                @media @tablet {
+                    display: block;
                     width: 100%;
                     height: 50px;
-                    margin: 0 auto;
-                    display: inline-block;
-                    position: absolute;
-                    right: 0;
-                    left: -65px;
+                    background-color: @color-swatch2;
+                    &:after {
+                        content:"";
+                        background: image('/images/nav-icon.png') no-repeat;
+                        background-position: right;
+                        width: 100%;
+                        height: 50px;
+                        margin: 0 auto;
+                        display: inline-block;
+                        position: absolute;
+                        right: 0;
+                        left: -65px;
+                    }
                 }
             }
         }
@@ -347,12 +317,9 @@ header {
    =============================== */
 
 .main {
-    padding: 0px 0 20px 0;
+    padding-top: 40px;
+    padding-bottom: 20px;
     margin-bottom: 40px;
-
-        @media @tablet {
-            padding: 10px 0;
-        }
 
         ol, li {    /* removes list-style on sections and items */
             list-style: none;
@@ -360,13 +327,17 @@ header {
             margin: 0;
         } 
 
-        .menu-sections {
+        li {
+            display: block;
+        }
+
+        .menu-subsection {
             margin-top: 1em;
         }
 
         /* SECTION AND SUB-SECTION HEADERS */
 
-        .menu-header, .menu-section-header {
+        .menu-header, .menu-subsection-header {
             padding: 2.813em 0 1.875em;
 
             @media @tablet {
@@ -399,13 +370,17 @@ header {
 
         }   /* end menu-header - menu-section-header */
 
-        .menu-section-header {
+        .menu-header {
+            padding-top: 0;
+        }
+
+        .menu-subsection-header {
                 padding: 3.125em 0;
         }
 
         /* ITEMS */
 
-        .menu-items, .menu-section-items {
+        .menu-items {
             column-count: 2;
             column-gap: 60px;
             column-rule: 2px dotted fade(@color-swatch5, 25%);
@@ -416,7 +391,7 @@ header {
            -webkit-column-gap : 60px;
            -webkit-column-rule: 2px dotted fade(@color-swatch5, 25%);
 
-           @media only screen and (max-width: 600px) {
+           @media @mobile {
                 column-count: 1;
                 column-gap: 50px;
                -moz-column-count: 1;
@@ -424,20 +399,37 @@ header {
                -webkit-column-count: 1;
                -webkit-column-gap : 50px;
             }
-
-            @media @mobile { 
-                column-count: 1;
-                column-gap: 50px;
-               -moz-column-count: 1;
-               -moz-column-gap: 50px;
-               -webkit-column-count: 1;
-               -webkit-column-gap : 50px;
+            > * {
+                break-inside: avoid;
+                -webkit-column-break-inside: avoid;
+                -moz-column-break-inside: avoid;
+                -ms-column-break-inside: avoid;
+                -o-column-break-inside: avoid;
             }
+            &.odd {
+                -webkit-column-count: 3;
+                -moz-column-count: 3;
+                column-count: 3;
+                 &.1-columns {
+                    -webkit-column-count: 1;
+                    -moz-column-count: 1;
+                    column-count: 1;
+                }
+                @media @tablet {
+                    -webkit-column-count: 1;
+                    -moz-column-count: 1;
+                    column-count: 1;  
+                }
+             }
             
             li {    /* menu-item and menu-section-item */
+                display: inline-block;
                 position: relative;
-                display: block;
-
+                -webkit-column-break-inside: avoid;
+                -moz-column-break-inside: avoid;
+                -ms-column-break-inside: avoid;
+                -o-column-break-inside: avoid;
+                break-inside: avoid;
                 @media @mobile { 
                     margin-bottom: 1.5em;
                     padding-bottom: 1.5em;
@@ -450,6 +442,7 @@ header {
             }   /* end menu-items li */
 
                 &.menu-item-promoted {
+                    display: inline-block;
                     padding: 1.5em;
                     margin: 2em 0 1.5em;
                     border: 2px dotted @color-swatch7;
@@ -464,8 +457,8 @@ header {
                         z-index: 9999999;
                         right: 5%;
                         color: @color-swatch7;
-                        @media @mobile {
-                            margin-top: -18%;
+                        @media @tablet {
+                            margin-top: -12%;
                         }
                     }
                     h3 {
@@ -476,22 +469,30 @@ header {
                 }   /* end menu-item-promoted */
 
                 .inner-item {
-                    display: inline-block;
 
                     h3 {    /* menu-item-name and menu-section-item-name */  
                         padding: 0;
                         margin: 1em 0 0.25em;
                         font-family: @font-swatch3-font-family;
                         color: @font-swatch3-color;
+                        text-align: left;
+                        @media @tablet {
+                            margin: 0 0 0.25em;
+                        }
                     }
 
-                    img {   /* menu-item-image and menu-section-item-image */
-                        border: none;
-                        -webkit-border-radius: 5px;
-                        -moz-border-radius: 5px;
-                        border-radius: 5px;
-                        width: 100%;
-                        margin: 15px 0;
+                    .menu-item-image-wrap {
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        height: 180px;
+                        margin: 0.25em 0 0.75em;
+                        background-position: center;
+                        @media @mobile {
+                            margin: 1em 0 0.5em;
+                        }
+                        img {
+                            display: none;
+                        }
                     }
 
                     ul, li {
@@ -531,42 +532,38 @@ header {
                         line-height:@font-swatch5-line-height;
                         color:@font-swatch5-color;
                         letter-spacing: @font-swatch5-letter-spacing;
-                        float: left;
                         margin: 0.5em 0 0.5em 0;
                         padding: 0;
                     }
 
                     .menu-section-item-dietary-props {
                         display: block;
-                        margin: 0;
+                        margin: 1em 0 0.5em;
                         padding: 0;
                         float: left;
 
                             .dietary-icon {
                                 background-color: @color-swatch1, 80%;
-                                width: 20px;
-                                height: 20px;
+                                width: auto;
                                 border: 0;
+                                padding: 2px 8px;
                                 margin: 5px 5px 0 0;
                                 border-radius: 100px;
                                 -moz-border-radius: 100px;
                                 -webkit-border-radius: 100px;
                                 background-repeat: no-repeat;
-                                background-size: 19px;
                                 background-position: center;
                                 display: inline-block;
                             }
-	                            .hot-icon {
-	                            	background-image: image('/images/hot-icon.png)');
-	                            }
-
-	                            .vegetarian-icon {
-	                                background-image: image('/images/vegi-icon.png');
-	                            }
-
-	                            .glutenFree-icon {
-	                                background-image: image('/images/gf-icon.png');
-	                            }
+                                .medium-spicy-icon.dietary-icon {
+                                    background-color: orange;
+                                }
+                                .hot-icon.dietary-icon {
+                                    background-color: #860b14;
+                                }
+                                .spicy-icon.dietary-icon {
+                                    background-color: green;
+                                }
                         
                     }   /* end menu-section-item-dietary-props */
 
@@ -617,12 +614,28 @@ header {
 
         }   /* end menu-items */  
 
+        .menu-subsection {
+            padding: 1% 6%;
+            border: 2px dotted fade(@color-swatch5, 30%);
+             .menu-items {
+                column-rule: none;
+                -moz-column-rule: none;
+                -webkit-column-rule: none;
+                li {
+                    display: inline-block;
+                    border-bottom: none;
+                }
+             }
+        }
+
         .menu-info {
             display: block;
+            float: left;
             text-align: center;
             margin: 2.5em 0;
             border: 2px dotted @color-swatch1;
             padding: 30px;
+            width: 100%;
 
             p {    /* menu-note */
                 width: 100%;
@@ -641,7 +654,7 @@ header {
 
                 dt {    /* dietary-icon */
                     vertical-align: top; 
-                    width: 25px;
+                    width: auto;
                     height: 25px;
                     border: 0;
                     background-repeat: no-repeat;
@@ -689,14 +702,215 @@ header {
                     padding: 25px 0 5px;
                 }
         }
-
 }   /* end main */
+
+/* ===============================
+   BLOG
+   =============================== */
+
+.widget {
+    &.bloglistposts {
+        .blog-post-item {
+            border-bottom: 1px dotted fade(@color-swatch5, 50%);
+        }
+
+    }
+}
+.blog-post-item {
+    margin: 1.5em 0;
+    padding-bottom: 1em;
+    h2 {
+        margin: 0.5em 0 0.25em;
+        a {
+            font-family: @font-swatch2-font-family;
+            font-size: @font-swatch2-font-size;
+            font-weight: @font-swatch2-font-weight;
+            line-height: @font-swatch2-line-height;
+            color: @font-swatch2-color;
+            letter-spacing: @font-swatch2-letter-spacing;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+.blog-post-metadata {
+    background-color: transparent;
+    background-image: none;
+    margin-top: 0;
+    text-align: left;
+    time {
+        display: block;
+        margin: 0.75em 0;
+    }
+    li {
+        display: inline;
+    }
+}
+
+.blog-list-footer {
+    background-color: transparent;
+    background-image: none;
+}
+
+.blog-post-more-link {
+    float: left;
+    width: 100%;
+}
+
+.blogsearch {
+    form {
+        button {
+            padding: 10px;
+            color: @font-swatch7-color;
+            font-size: @font-swatch6-font-size;
+            font-weight: @font-swatch6-font-weight;
+            line-height: @font-swatch6-line-height;
+            background-color: @font-swatch7-background-color;
+            border: none;
+        }
+    }
+    label {
+        display: block;
+    }
+    input {
+        display: inline-block;
+        height: 42px;
+        width: 80%;
+        @media @mobile {
+            width: 65%;
+        }
+    }
+    .blog-search-submit-button {
+        display: inline-block;
+        margin-left: 2%;
+        width: 15%;
+        @media @mobile {
+            width: 30%;
+        }
+    }
+} 
+.blog-post-feature-image-wrap {  /* Blog post feature image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 250px;
+    width: 100%;
+    img {
+        display: none;
+    }
+}
+
+/* ===============================
+   FORMs & BUTTONS
+   =============================== */
+
+input, textarea {
+    color: black;
+}
+
+fieldset {
+    padding: 1.5em 0;
+}
+
+.signupform fieldset button, fieldset button {
+    height: 45px;
+}
+
+.widget.profile form button {
+    padding-top: 8px;
+}
+
+/* ===============================
+   SLIDESHOW WIDGET
+   =============================== */
+
+.widget.responsiveslideshow {
+    .slideshow-image-list,
+    .slideshow-widget {
+        min-height: 450px;
+        @media @tablet {
+            min-height: 350px;
+        }
+        @media @mobile {
+            min-height: 280px;
+            height: 280px;
+        }
+    }
+    .title {
+        display: block;
+    }
+    .content-wrapper {
+        background: rgba(0,0,0,0.5);
+    }
+    .slideshow-widget {
+        /* Arrows */
+        .btn-prev,
+        .btn-next {
+            font-size: 0;
+            z-index: 11;
+            text-indent: -99999px;
+            width: 40px;
+            height: 40px;
+            background: rgba(0,0,0,0.5);
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+        }
+        .btn-prev {
+            &:after {
+                content: "\2190";
+                color: #fff;
+                top: 7px;
+            }
+        }
+        .btn-next {
+            &:after {
+                content: "\2192";
+                color: #fff;
+                top: 7px;
+            }
+        }
+        /* Play Button */
+        .btn-play {
+            background: rgba(0,0,0,0.5);
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            margin: 0 auto;
+            height: 60px;
+            width: 80px;
+            @media @mobile {
+                left: 38%;
+            }
+            &:after {
+                color: #fff;
+                letter-spacing: -4px;
+                top: 2px;
+            }
+        }
+    }
+    /* Slideshow Controls */
+    .slideshow-widget-controls {
+        .dot {
+            width: 11px;
+            height: 11px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            &.selected {
+                background-color: @color-swatch1;
+            }
+        }
+    }
+}
 
 /* ===============================
    FOOTER
   =============================== */
 
-footer {
+.bk-footer {
 	font-family: @font-swatch5-font-family;
 	color: @font-swatch5-color;
 	font-size: @font-swatch5-font-size;
@@ -718,6 +932,14 @@ footer {
 }   /* end footer */ 
 
 /* ===============================
+  MISC
+   =============================== */
+
+hr.line {
+    background-color: fade(@color-swatch6, 25%);
+}
+
+/* ===============================
   BACK TO TOP
    =============================== */
 
@@ -733,11 +955,3 @@ footer {
         display: block;
     }
 }   /* end back-to-top */
-
-@media only screen and (min-width: 1140px) {
-
-	.wrapper {
-		width: 960px;	/* 1140px - 10% for margins */
-		margin: 0 auto;
-	}
-}
