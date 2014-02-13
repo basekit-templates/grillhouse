@@ -54,6 +54,14 @@ body {
     }
 }
 
+::-moz-selection {
+    background-color: @color-swatch3;
+}
+
+::selection {
+    background-color: @color-swatch3;
+}
+
 /* ===============================
    VARIABLE MEDIA QUERIES
    =============================== */
@@ -86,7 +94,7 @@ header {
         &.companyname {
             a {
                 display: block;
-                padding-bottom: 45px;
+                padding-bottom: 20px;
                 font-family: @font-swatch10-font-family;
                 font-weight: @font-swatch10-font-weight;
                 color: @font-swatch10-color;
@@ -198,6 +206,7 @@ nav {
                 @media @tablet {
                     width: 100%;
                     padding: 1em 0;
+                    background-color: @color-swatch2;
                     border-bottom: 1px dotted @color-swatch2;
                 }
                 &:first-child a {
@@ -531,6 +540,7 @@ nav {
                 -ms-column-break-inside: avoid;
                 -o-column-break-inside: avoid;
                 break-inside: avoid;
+                width: 100%;
                 @media @mobile { 
                     margin-bottom: 1.5em;
                     padding-bottom: 1.5em;

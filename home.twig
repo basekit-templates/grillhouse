@@ -2,8 +2,6 @@
 
 {% block content %}
 
-<a name="top"></a>
-
 <header class="bk-header">
     <div class="wrapper clearfix">
         <div class="responsivecolumns columns-two-75-25">
@@ -32,7 +30,7 @@
     <div class="clearfix">
         {{widget('menusections', 'menusections1', {})|raw}}
     </div>
-    {{widget('menu', 'menu1', {})|raw}}
+        {{widget('menu', 'menu1', {})|raw}}
     <div class="wrapper">
         <div class="responsivecolumns columns-three-33-34-33 offers">
             <div class="column columns-three-left">
@@ -41,18 +39,17 @@
                 <p>{{widget('content', 'takeawaycontent', {content: 'This is a content widget.', lines: 'all'})|raw}}</p>
             </div> 
             <div class="column columns-three-middle">
-                {{widget('image', 'offers', { 'src': asset('images/beer-special-img.jpg'), 'alt': 'my image', 'fileName': 'my-image.jpg', 'imageWidth': '97%'})|raw}}
+                {{widget('image', 'offers2', { 'src': asset('images/beer-special-img.jpg'), 'alt': 'my image', 'fileName': 'my-image.jpg', 'imageWidth': '97%'})|raw}}
                 <h3>{{widget('content', 'specialsheading', {content: 'BEER &amp; BURGER SPECIAL', lines: 'all'})|raw}}</h3>
                 <p>{{widget('content', 'specialscontent', {content: 'This is a content widget.', lines: 'all'})|raw}}</p>
             </div>
             <div class="column columns-three-right">
-                {{widget('image', 'offers', { 'src': asset('images/opening-img.jpg'), 'alt': 'my image', 'fileName': 'my-image.jpg', 'imageWidth': '100%'})|raw}}
+                {{widget('image', 'offers3', { 'src': asset('images/opening-img.jpg'), 'alt': 'my image', 'fileName': 'my-image.jpg', 'imageWidth': '100%'})|raw}}
                 <h3>{{widget('content', 'openingheading', {content: 'OPENING HOURS', lines: 'all'})|raw}}</h3>
                 <p>{{widget('content', 'openingcontent', {content: 'This is a content widget.', lines: 'all'})|raw}}</p>
             </div> 
         </div>
     </div>
-
 </div>
 
 <footer class="bk-footer">
