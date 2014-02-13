@@ -21,15 +21,18 @@
         <!--end responsive-columns-->
     </div>
     <!--end wrapper -->
-
-    {{widget('menusections', 'menusections1', {})|raw}}
-
+    <nav class="clearfix">
+        {% if pages|length > 1 %}
+            {{widget('extendednavigation', 'navigationheader', {})|raw}}
+        {% endif %}
+    </nav>
 </header>
 
 <div class="main wrapper">
-
+    <div class="clearfix">
+        {{widget('menusections', 'menusections1', {})|raw}}
+    </div>
     {{widget('menu', 'menu1', {})|raw}}
-
     <div class="wrapper">
         <div class="responsivecolumns columns-three-33-34-33 offers">
             <div class="column columns-three-left">
