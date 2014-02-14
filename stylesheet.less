@@ -292,7 +292,7 @@ nav {
                             color: @color-swatch6;
                             @media @tablet {
                                 font-size: 10px;
-                                padding-right: 30px;
+                                padding-right: 10px;
                             }
                         }
                         @media @tablet {
@@ -405,11 +405,9 @@ nav {
                     @media @tablet {
                         border-top: none;
                     }
-                    @media @tablet {
-                        a {
-                            border-top: 1px solid fade(@color-swatch6, 30%);
-                            padding-left: 0;
-                        }
+                    a {
+                        border-top: 1px solid fade(@color-swatch6, 30%);
+                        padding-left: 0;
                     }
                 }
                 &:last-child {
@@ -421,6 +419,7 @@ nav {
                 }
 
                 a {
+                    padding: 0 15px;
                     @media @tablet {
                         padding: 1em 0;
                     }
