@@ -343,7 +343,6 @@ nav {
            &.pull, &.menu-pull {
                display: none;
                @media @tablet {
-                   border-bottom: 1px solid darken(@color-swatch1, 12%);
                    display: block;
                    position: absolute;
                    margin: 0 auto;
@@ -406,11 +405,7 @@ nav {
                         border-top: none;
                     }
                     a {
-                        border-top: 1px solid fade(@color-swatch6, 30%);
                         padding-left: 0;
-                        @media @tablet {
-                            border-top: none;
-                        }
                     }
                 }
                 &:last-child {
@@ -444,6 +439,10 @@ nav {
    MENU
    =============================== */
 
+.main {
+    padding: 30px 0 10px;
+}
+
 .menu {
     .main {
         width: 100%;
@@ -452,7 +451,7 @@ nav {
 
 .widget {
     &.menu {
-            padding-top: 40px;
+            padding-top: 20px;
             padding-bottom: 20px;
                 ol, li {    /* removes list-style on sections and items */
                     list-style: none;
@@ -719,7 +718,7 @@ nav {
                 }   /* end menu-items */  
 
                 .menu-subsection {
-                    padding: 1% 6%;
+                    padding: 2% 6% 4%;
                     border: 2px dotted fade(@color-swatch5, 30%);
                      .menu-items {
                         column-rule: none;
@@ -785,27 +784,27 @@ nav {
 
                     }   /* end dl */
 
-                }   /* end menu-info */
-
-                .offers {
-                	font-family: @font-swatch5-font-family;
-                	color: @font-swatch5-color;
-                	font-size: @font-swatch5-font-size;
-                	font-weight: @font-swatch5-font-weight;
-                    line-height:@font-swatch5-line-height;
-                    letter-spacing: @font-swatch5-letter-spacing;
-                    text-align: center;
-                    margin: 30px 0;
-
-                        img {
-                            border: 5px solid @color-swatch5;
-                        }
-
-                        h3 {
-                            padding: 25px 0 5px;
-                        }
-                }
+                }   /* end menu-info */       
     }
+}
+
+.offers {
+    font-family: @font-swatch5-font-family;
+    color: @font-swatch5-color;
+    font-size: @font-swatch5-font-size;
+    font-weight: @font-swatch5-font-weight;
+    line-height:@font-swatch5-line-height;
+    letter-spacing: @font-swatch5-letter-spacing;
+    text-align: center;
+    margin: 30px 0;
+
+        img {
+            border: 5px solid @color-swatch5;
+        }
+
+        h3 {
+            padding: 25px 0 5px;
+        }
 }
 
 /* ===============================
@@ -1045,11 +1044,24 @@ fieldset {
 }   /* end footer */ 
 
 /* ===============================
+   BLOCK QUOTE
+  =============================== */
+
+  blockquote {
+    background-color: transparent;
+    margin: 20px;
+    &:before {
+        color: @color-swatch3;
+    }
+  }
+
+/* ===============================
   MISC
    =============================== */
 
 hr.line {
     background-color: fade(@color-swatch6, 25%);
+    height: 1px;
 }
 
 /* ===============================
