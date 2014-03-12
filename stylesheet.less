@@ -1021,3 +1021,35 @@ hr.line {
         display: block;
     }
 }   /* end back-to-top */
+
+
+/* ===============================
+   PRINT STYLES 
+   =============================== */
+.print-mixin {
+	.widget.logo,
+	header .widget.clicktocall a:before,
+	.widget.menu .menu-items li.menu-item-promoted:before,
+	.bk-footer {
+		display: none;
+	}
+	header .widget.clicktocall,
+	.widget.menu .menu-items li.menu-item-promoted {
+		border-color: #b9b9b9 !important;
+	}
+}
+ 
+@media print {
+    body {
+	    background-color: white;
+		background-image: none;
+    }
+    .print-mixin;
+}
+ 
+.bk-print {
+	background-color: white;
+	background-image: none;
+    .print-mixin;
+}
+
