@@ -846,11 +846,10 @@ nav {
 
 input, textarea {
     background: white;
-    color: black!important;
 }
 
 .widget.button.paypal {
-    color: @color-swatch5!important;
+    color: @font-swatch6-color;
 }
 
 fieldset {
@@ -870,11 +869,23 @@ fieldset {
 }
 
 button {
-    color: @font-swatch7-color;
+    color: @font-swatch6-color;
     font-size: @font-swatch6-font-size;
     font-weight: @font-swatch6-font-weight;
     line-height: @font-swatch6-line-height;
-    background-color: @font-swatch7-background-color;
+    background-color: @font-swatch6-background-color;
+}
+
+.signupform fieldset input {
+    @media @tablet {
+        width:50%;
+    }
+}
+
+.widget.profile form fieldset input {
+    @media @tablet {
+        width:50%;
+    }
 }
 
 /* ===============================
