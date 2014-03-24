@@ -1,0 +1,64 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+<header class="bk-header">
+    <div class="wrapper clearfix">
+        <div class="responsivecolumns columns-two-75-25">
+            <div class="column columns-two-left">
+                {{widget('logo', 'grillhouse-logo', {"defaultlogo": asset('images/grillhouse-logo.png')})|raw}}
+
+                {{widget('companyname', 'companyname', {"business": "profile"})|raw}}
+            </div>
+                <!--end columns-two-left-->
+            <div class="column columns-two-right">
+                {{widget('clicktocall', 'telephone-us', {phoneText: '212 6574 6736'})|raw}}
+            </div>
+                <!--end columns-two-right-->            
+        </div>
+        <!--end responsive-columns-->
+    </div>
+    <!--end wrapper -->
+    <nav class="clearfix">
+        {% if pages|length > 1 %}
+            {{widget('extendednavigation', 'navigationheader', {})|raw}}
+        {% endif %}
+    </nav>
+</header>
+
+<div class="main wrapper">
+    {{zone('main')|raw}}
+    <div class="wrapper">
+        <div class="responsivecolumns columns-three-33-34-33 offers">
+            <div class="column columns-three-left">
+                {{widget('image', 'offers', { 'src': asset('images/takeaway-img.jpg'), 'alt': 'my image', 'fileName': 'my-image.jpg', 'imageWidth': '100%'})|raw}}
+                <h3>{{widget('content', 'takeawayheading', {content: 'TAKEAWAY', lines: 'all'})|raw}}</h3>
+                <p>{{widget('content', 'takeawaycontent', {content: 'Lorum ipsum', lines: 'all'})|raw}}</p>
+            </div> 
+            <div class="column columns-three-middle">
+                {{widget('image', 'offers2', { 'src': asset('images/beer-special-img.jpg'), 'alt': 'my image', 'fileName': 'my-image.jpg', 'imageWidth': '97%'})|raw}}
+                <h3>{{widget('content', 'specialsheading', {content: 'BEER &amp; BURGER SPECIAL', lines: 'all'})|raw}}</h3>
+                <p>{{widget('content', 'specialscontent', {content: 'Lorum ipsum', lines: 'all'})|raw}}</p>
+            </div>
+            <div class="column columns-three-right">
+                {{widget('image', 'offers3', { 'src': asset('images/opening-img.jpg'), 'alt': 'my image', 'fileName': 'my-image.jpg', 'imageWidth': '100%'})|raw}}
+                <h3>{{widget('content', 'openingheading', {content: 'OPENING HOURS', lines: 'all'})|raw}}</h3>
+                <p>{{widget('content', 'openingcontent', {content: 'Lorum ipsum', lines: 'all'})|raw}}</p>
+            </div> 
+        </div>
+    </div>
+</div>
+
+<footer class="bk-footer">
+    <div class="wrapper clearfix">
+        <div class="responsivecolumns columns-two-50-50">
+            <div class="column columns-two-left">
+            {{widget('map', 'addressmap', {'height': '250', 'zoom': '15', 'address': 'profile'})|raw}}
+            </div> 
+            <div class="column columns-two-right">
+            {{widget('content', 'footercontent', {content: '', lines: 'all'})|raw}}
+        </div>
+    </div>
+</footer>
+
+{% endblock %}
